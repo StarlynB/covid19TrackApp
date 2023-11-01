@@ -1,0 +1,47 @@
+<H1 class="border-bottom border-4 border-info">Covid-19 statistics</H1>
+<div class="container">
+    <div class="vh-100 mt-5">
+        <div class="row">
+            <div *ngIf="isLoading" class="d-flex justify-content-center align-content-center">
+                <div class="spinner-border text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div class="scrollbar overflow-x-auto overflow-y-auto vh-100" style="max-height: 500px;">
+                <div class="d-flex flex-sm-row flex-column">
+                    <div *ngFor="let data of data" class="card m-1 border border-info rounder">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ data.continent }}</h5>
+                            <h3 class="card-subtitle">{{data.country}}</h3>
+                            <p class="card-text">{{data.population}}</p> 
+                            <!-- cases -->
+                            <div class="pt-2">
+                                <h2 class="card-subtitle border-bottom border-3 mt-1 mb-4 border-warning">Cases</h2>
+                                <p class="card-text"><strong>New: </strong>{{data.cases.new}}</p>
+                                <p class="card-text"><strong>Active cases: </strong>{{data.cases.active}}</p>
+                                <p class="card-text"><strong>Critical: </strong>{{data.cases.critical}}</p>
+                                <p class="card-text"><strong>Recovered: </strong>{{data.cases.recovered}}</p>
+                                <p class="card-text"><strong>Cases Total: </strong>{{data.cases.total}}</p>
+                            </div>
+                            <div class="pt-2">
+                                <h2 class="card-subtitle border-bottom border-3 mt-1 mb-4 border-danger">Deaths</h2>
+                                <p class="card-text"><strong>New: </strong> {{data.deaths.new}}</p>
+                                <p class="card-text"><strong>Total :</strong>  {{data.deaths.total}}</p>
+                            </div>
+                            <div class="pt-2">
+                                <h2 class="card-subtitle border-bottom border-3 mt-1 mb-4 border-info">Tests</h2>
+                                <p class="card-text"><strong>Total: </strong> {{data.tests.total}}</p>
+                            </div>
+                            <div class="pt-2">
+                                <p class="card-text"><strong>Day: </strong>{{data.day}}</p>
+                                <p class="card-text"><strong>Time: </strong>{{data.time}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              
+        </div>
+    </div>
+  </div>
+

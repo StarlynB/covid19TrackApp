@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.hide-sidebar-topbar {
+    margin-left: -25;
+    width: 125%;
+    display: none;
+}

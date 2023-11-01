@@ -25,9 +25,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/font-awesome/css/font-awesome.min.css",
+              "./node_modules/ngx-toastr/toastr.css",
+              "./node_modules/ngx-toastr/toastr-bs4-alert.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "68cb174e-632d-4996-8062-d062feb1cbd6"
   }
 }

@@ -1,0 +1,28 @@
+<H1 class="border-bottom border-4 border-info">Countrys Summary</H1>
+<div class="overflow-x-auto overflow-y-auto vh-100 table-responsive  mt-5" style="max-height: 500px;">
+    <div *ngIf="isLoading" class="d-flex justify-content-center align-content-center">
+        <div class="spinner-border text-info" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+    <table  class="table table-hover table-light ">
+        <thead>
+            <tr>
+                <td>Continent</td>
+                <td>Country</td>
+                <td>Date</td>
+                <td>Population</td>
+            </tr>
+        </thead>
+        <tbody *ngFor="let data of data">
+            <tr *ngIf="!isLoading" >
+                <td><i class=" fa fa-regular fa-globe" style="color: #1f512b;"></i>&nbsp;{{data.continent}}</td>
+                <td>{{data.country}}</td>
+                <td><i class="fa fa-regular fa-calendar"></i>&nbsp;{{data.day}}</td>
+                <td><i class="fa fa-solid fa-exclamation" style="color: #ff0000;"></i>&nbsp;{{data.population}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+        

@@ -1,0 +1,8 @@
+<nav class="navbar navbar-ligth bg-light me-0">
+    <div class="container-fluid">
+        <button  [routerLink]="'login'" *ngIf="!isLoggedIn()" class="btn btn-outline-success ms-auto" >Login</button>  
+        <button *ngIf="isLoggedIn()" (click)="onLogout()"  class="btn btn-outline-info ms-auto">Logout</button> 
+    </div>
+</nav>
+
+

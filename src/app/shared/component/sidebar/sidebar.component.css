@@ -1,0 +1,18 @@
+#sidebar_font{
+    font-family: 'Tilt Neon', sans-serif !important;
+}
+
+.app-name-bottom{
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+router-link-active:active{
+    background-color: aqua;
+}
+
+a.active{
+    transition: 1.5s;
+    timeline-scope: 2.5s;
+    background-color: grey transparent;
+    border-bottom: 3px solid aqua;
+}
