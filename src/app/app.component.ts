@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { RouterTestingHarness } from '@angular/router/testing';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe(event =>{
       if(event instanceof NavigationEnd) {
-        this.hideSidebarTopbar = event.url === '/login' || event.url === '/NoFoundPage';
+        this.hideSidebarTopbar = event.url === '/login' || event.url === '/register';
       }
     });
   }

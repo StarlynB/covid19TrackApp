@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../../service/user-service.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-topbar',
@@ -10,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 export class TopbarComponent implements OnInit {
 
  
-  constructor(private userLogin: UserServiceService, private toast: ToastrService){}
+  constructor(private userLogin: UserServiceService, private toast: ToastrService, private route: Router){}
   ngOnInit(): void {
       
   }
@@ -22,6 +23,7 @@ export class TopbarComponent implements OnInit {
   onLogout() {
     this.userLogin.setLoggedIn(false)
     this.toast.success('logout successful','Logout');
+    this.route.navigate(['/login']);
   }
 
 }

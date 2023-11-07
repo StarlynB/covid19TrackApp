@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { AlertConfig } from 'ngx-bootstrap/alert';
 import { UserServiceService } from 'src/app/shared/service/user-service.service';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class UserLoginComponent implements OnInit {
   loginForm!: FormGroup;
   data: string[] | undefined
 
-  constructor(private formBUilder: FormBuilder, private service: UserServiceService, private router: Router) { }
+  constructor(private formBUilder: FormBuilder, private service: UserServiceService, private router: Router, private toast: ToastrService) { }
   ngOnInit(): void {
     this.loginForm = this.formBUilder.group({
       email: ['', Validators.required],
@@ -41,6 +42,13 @@ export class UserLoginComponent implements OnInit {
     if (this.loginForm?.invalid) {
       return;
     }
+    const savePassword = this.loginForm.get('password')?.value;
+
+    if (savePassword) {
+      const password = this.loginForm.get('password')?.value;
+    }
+    
+
 
     const url = 'https://reqres.in/api/login';
     const data = this.loginForm?.value;
@@ -49,6 +57,7 @@ export class UserLoginComponent implements OnInit {
       next: (data: any) => {
         console.log(data)
         this.showAlertMessage('success', 'Login successful');
+        this.toast.success('login successful ','Login');
         const token = data.token;
         this.service.setToken(token);
         this.service.setLoggedIn(true);

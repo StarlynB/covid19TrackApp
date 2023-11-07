@@ -4,6 +4,7 @@ import { SummaryModule } from './summary/summary.module';
 import { AppComponent } from './app.component';
 import { authGuard } from './guard/auth.guard';
 import { NoFoundPageComponent } from './no-found-page/no-found-page.component';
+import { UserRegisterComponent } from './auth/user-register/user-register.component';
 
 /* The `loadChildren` property in the route configuration is used to lazy load( carga perezosa ) a module in Angular. */
 const routes: Routes = [
@@ -12,9 +13,14 @@ const routes: Routes = [
     redirectTo: 'summary',
     pathMatch: 'full'
   },
+
   {
     path: 'login',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'register',
+    component: UserRegisterComponent
   },
   {
     path: 'summary',
